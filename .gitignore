@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# Ignore the files built by gulp
+dist
+
+package-lock.json
