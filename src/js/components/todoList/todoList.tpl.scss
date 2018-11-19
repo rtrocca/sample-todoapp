@@ -1,0 +1,21 @@
+todo-list {
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #36a;
+        text-decoration: none;
+        font-size:110%
+    }
+
+    i:hover {
+        color: #36a;
+        font-size:110%
+    }
+    .task-done {
+        opacity: 0.5;
+        font-style: italic;
+    }
+}

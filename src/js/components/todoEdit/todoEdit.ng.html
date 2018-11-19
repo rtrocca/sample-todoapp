@@ -1,0 +1,34 @@
+<div>
+  <div class="row">
+      <div class="col-md-12">
+              <form>
+                <div class="form-group">
+                  <label for="todoText">Text</label>
+                  <input type="text" 
+                    class="form-control" 
+                    id="todoText" 
+                    placeholder="Text" 
+                    ng-keydown="$ctrl.onKeyDown($event)"
+                    ng-model="$ctrl.todo.text">
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" ng-model="$ctrl.todo.done"> Done
+                  </label>
+                </div>
+                
+              </form>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary m-r-1em" ng-click="$ctrl.onSave()">
+        <i class="glyphicon glyphicon-ok-circle icon-space"></i>Save</button>
+      <button class="btn btn-danger m-r-1em" ng-if="!$ctrl.isNew()" ng-click="$ctrl.onDelete()">
+        <i class="glyphicon glyphicon-trash icon-space"></i>Delete</button>
+      
+      <button class="btn btn-default" ng-click="$ctrl.onCancel()">
+        <i class="glyphicon glyphicon-remove-circle icon-space"></i>Cancel</button>
+    </div>
+  </div>
+</div>

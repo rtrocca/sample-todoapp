@@ -1,0 +1,51 @@
+{
+  "name": "ajstodo",
+  "version": "0.0.1",
+  "description": "A simple Angular JS ToDo app to be used as sample",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp build && gulp watch"
+  },
+  "author": "Riccardo Trocca",
+  "license": "MIT",
+  "dependencies": {
+    "@uirouter/angularjs": "1.0.19",
+    "angular": "^1.7.5",
+    "angular-ui-bootstrap": "^2.5.6",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
+    "npm": "^6.4.1",
+    "uuid4": "^1.1.4"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.51",
+    "beeper": "^1.1.1",
+    "browserify": "^16.2.3",
+    "chalk": "^2.4.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^3.2.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1",
+    "map-stream": "0.0.7",
+    "merge-stream": "^1.0.1",
+    "ngify": "^1.6.2",
+    "node-notifier": "^5.3.0",
+    "node-sass": "^4.10.0",
+    "node-sass-import": "^2.0.1",
+    "run-sequence": "^2.2.1",
+    "source-map": "^0.7.3",
+    "stringify": "^5.2.0",
+    "through2": "^3.0.0",
+    "tsify": "^4.0.0",
+    "typescript": "^3.1.6",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.11.0"
+  }
+}
