@@ -1,7 +1,6 @@
 window.jQuery = window.$ = require('jQuery');
 window._ = require('lodash');
 require('angular');
-require('angular-ui-bootstrap');
 require('bootstrap');
 require('@uirouter/core');
 require('@uirouter/angularjs');
