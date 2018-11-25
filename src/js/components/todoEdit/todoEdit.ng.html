@@ -1,6 +1,6 @@
 <div>
   <div class="row">
-      <div class="col-md-12">
+      <div class="col">
               <form>
                 <div class="form-group">
                   <label for="todoText">Text</label>
@@ -21,14 +21,14 @@
       </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col">
       <button class="btn btn-primary m-r-1em" ng-click="$ctrl.onSave()">
-        <i class="glyphicon glyphicon-ok-circle icon-space"></i>Save</button>
+        <i class="fas icon-space" ng-class="{'fa-plus pointer': $ctrl.isNew(), 'fa-save': !$ctrl.isNew()}"></i>Save</button>
       <button class="btn btn-danger m-r-1em" ng-if="!$ctrl.isNew()" ng-click="$ctrl.onDelete()">
-        <i class="glyphicon glyphicon-trash icon-space"></i>Delete</button>
+        <i class="far fa-trash-alt icon-space"></i>Delete</button>
       
-      <button class="btn btn-default" ng-click="$ctrl.onCancel()">
-        <i class="glyphicon glyphicon-remove-circle icon-space"></i>Cancel</button>
+      <button class="btn btn-secondary" ng-click="$ctrl.onCancel()">
+          <i class="fas fa-times icon-space"></i>Cancel</button>
     </div>
   </div>
 </div>

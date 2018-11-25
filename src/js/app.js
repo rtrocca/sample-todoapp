@@ -1,7 +1,11 @@
-window.jQuery = window.$ = require('jQuery');
+window.jQuery = window.$ = require('jquery');
+import 'popper.js'
+import 'bootstrap'
+
 window._ = require('lodash');
+
 require('angular');
-require('bootstrap');
+
 require('@uirouter/core');
 require('@uirouter/angularjs');
 

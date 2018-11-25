@@ -5,7 +5,6 @@ const gulp = require('gulp'),
       concat = require('gulp-concat'),
       merge = require('merge-stream'),
       cleanCss = require('gulp-clean-css'),
-      rename = require('gulp-rename'),
       sass = require('gulp-sass'),
       sourcemaps = require('gulp-sourcemaps'),
       through = require('through2'),
@@ -31,12 +30,13 @@ const NODE_MODULES_PATH = 'node_modules/';
 
 const SOURCE_PATHS = {
     vendorStyles: [
-        NODE_MODULES_PATH + 'bootstrap/dist/css/bootstrap.css',
-        NODE_MODULES_PATH + 'bootstrap/dist/css/bootstrap-theme.css'
+        NODE_MODULES_PATH + 'bootstrap/dist/css/bootstrap.min.css',
+        NODE_MODULES_PATH + 'bootstrap/dist/css/bootstrap-theme.css',
+        NODE_MODULES_PATH + '@fortawesome/fontawesome-free/css/all.css',  
     ],
 
     fonts: [
-        NODE_MODULES_PATH + 'bootstrap/dist/fonts/*.*'
+        NODE_MODULES_PATH + '@fortawesome/fontawesome-free/webfonts/*.*'
     ]
 };
 
@@ -169,7 +169,7 @@ function startWatchify(config) {
 
 gulp.task('copy-fonts', () => {
     let files = SOURCE_PATHS.fonts,
-        destinationPath = BUILD_PATH + '/fonts/',
+        destinationPath = BUILD_PATH + '/webfonts/',
         task = gulp
             .src(files)
             .pipe(changed(destinationPath))

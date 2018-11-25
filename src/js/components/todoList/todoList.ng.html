@@ -1,26 +1,29 @@
 <div>
-    <div class="modal fade" tabindex="-1" role="dialog" id="confirmDialog">
+    <div class="modal" tabindex="-1" role="dialog" id="confirmDialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Delete task?</h4>
-            </div>
-            <div class="modal-body">
-                <p>Do you want to delete task "{{$ctrl.currentTask.text}}" ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" ng-click="$ctrl.onModalCancel()"><i class="glyphicon glyphicon-remove-circle icon-space"></i>Cancel</button>
-                <button type="button" class="btn btn-danger" ng-click="$ctrl.onDelete($ctrl.currentTask)"><i class="glyphicon glyphicon-trash icon-space"></i>Delete</button>
-            </div>
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete task?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    
+                </div>
+
+                <div class="modal-body">
+                    <p>Do you want to delete task "{{$ctrl.currentTask.text}}" ?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" ng-click="$ctrl.onModalCancel()"><i class="fas fa-times icon-space"></i>Cancel</button>
+                    <button type="button" class="btn btn-danger" ng-click="$ctrl.onDelete($ctrl.currentTask)"><i class="far fa-trash-alt icon-space"></i>Delete</button>
+                </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
     <div style="display: inline-block"><h4>Tasks</h4></div>
-    <a ng-click="$ctrl.onCreateClick()" style="margin-left:2em;"><i class="glyphicon glyphicon-plus pointer"></i></a>
+    <a ng-click="$ctrl.onCreateClick()" style="margin-left:2em;"><i class="fas fa-plus pointer"></i></a>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -34,7 +37,7 @@
                     <tr ng-repeat="todo in $ctrl.todos track by todo.id" ng-class="{'task-done': todo.done}">
                         <td>
                             <a ui-sref="edit({ todoId: todo.id })" class="pointer">
-                                <i class="glyphicon glyphicon-pencil"></i>
+                                <i class="fa fa-edit"></i>
                             </a> 
                         </td>
                         <td>
@@ -45,12 +48,12 @@
                         <td> 
                             <i 
                                ng-click="$ctrl.toggleDone(todo)"
-                               class="glyphicon pointer" 
-                               ng-class="{'glyphicon-unchecked': !todo.done, 'glyphicon-check': todo.done}"></i>
+                               class=" pointer" 
+                               ng-class="{'far fa-square': !todo.done, 'far fa-check-square': todo.done}"></i>
                         </td>
                         <td>
                             <i  ng-click="$ctrl.onConfirmDelete(todo)"
-                                class="glyphicon glyphicon-trash pointer"></i>
+                                class="far fa-trash-alt pointer"></i>
                         </td>
                     </tr>
                 </tbody>
