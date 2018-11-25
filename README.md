@@ -7,3 +7,5 @@ npm i
 npm run watch
 
 The built files will be available in the dist folder.
+*Note*:
+It contains an example of using Bootstrap 4 together with Browserify.
