@@ -46,10 +46,11 @@
                             </a>
                         </td>
                         <td> 
+                            <a ng-click="$ctrl.toggleDone(todo)">
                             <i 
-                               ng-click="$ctrl.toggleDone(todo)"
                                class=" pointer" 
                                ng-class="{'far fa-square': !todo.done, 'far fa-check-square': todo.done}"></i>
+                            </a>
                         </td>
                         <td>
                             <i  ng-click="$ctrl.onConfirmDelete(todo)"

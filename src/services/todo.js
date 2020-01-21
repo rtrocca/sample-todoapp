@@ -2,7 +2,7 @@ const uuid4 = require('uuid4');
 
 angular.module('todoApp').service('storage',[
     '$q',
-    ($q) => {
+    function($q) {
 
         function createNew() {
             let deferred = $q.defer();
