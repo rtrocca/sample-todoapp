@@ -1,3 +1,5 @@
+import 'react-app-polyfill/stable';
+
 window.jQuery = window.$ = require('jquery');
 import 'popper.js'
 import 'bootstrap'
