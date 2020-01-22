@@ -1,8 +1,10 @@
+import * as angular from 'angular';
+import template from './root.ng.html';
 const componentName = 'root';
 
 angular.module('todoApp').component(
     componentName, {
-        template: require('./root.ng.html'),
+        template,
         bindings: {},
         controller: [
             function() {

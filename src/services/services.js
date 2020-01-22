@@ -1,1 +1,1 @@
-require('./todo');
+import './todo';

@@ -1,4 +1,5 @@
-const uuid4 = require('uuid4');
+import * as uuid4 from 'uuid4';
+import * as angular from 'angular';
 
 angular.module('todoApp').service('storage',[
     '$q',

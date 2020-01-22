@@ -1,10 +1,13 @@
+import * as angular from 'angular';
+import template from './todoList.ng.html';
+
 angular.module('todoApp').component( 'todoList',{
-    template: require('./todoList.ng.html'),
+    template,
     bindings: {},
     controller: [
         '$state',
         'storage',
-        function(
+        function (
             $state,
             storage
         ) {

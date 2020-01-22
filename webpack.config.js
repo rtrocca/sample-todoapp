@@ -2,11 +2,19 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        main: path.resolve(__dirname, 'src/index.js'),
+        services: path.resolve(__dirname, 'src/services/services.js')
+    },
     devtool: "source-map",
     plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
+            {
+                test: /\.(js)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            },
             {
                 test: /\.html$/i,
                 loader: 'html-loader'
@@ -34,8 +42,19 @@ module.exports = {
               }
         ]
     },
+    resolve: {
+        extensions: ['*', '.js']
+    },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
+    devServer: {
+        contentBase: './dist'
+    },
     output: {
-        filename: 'main.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     }
 };

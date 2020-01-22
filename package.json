@@ -8,6 +8,15 @@
   "scripts": {
     "build": "webpack"
   },
+  "babel": {
+    "presets": [ "@babel/preset-env"]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie < 11",
+    "not op_mini all"
+],
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.5.0",
     "@uirouter/angularjs": "1.0.19",
@@ -19,7 +28,10 @@
     "uuid4": "^1.1.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "@types/angular": "^1.6.51",
+    "babel-loader": "^8.0.6",
     "beeper": "^1.1.1",
     "browserify": "^16.2.3",
     "chalk": "^2.4.1",

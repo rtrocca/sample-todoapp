@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 angular.module('todoApp').component(
     'todoEdit', {
         template: require('./todoEdit.ng.html'),

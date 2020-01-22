@@ -1,3 +1,3 @@
-require('./root/root');
-require('./todoList/todoList');
-require('./todoEdit/todoEdit');
+import './root/root';
+import './todoList/todoList';
+import './todoEdit/todoEdit';
