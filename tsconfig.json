@@ -1,39 +1,26 @@
 {
-    "include": [
-      "src/**/*.ts",
-      "src/**/*.js", "src/index.js"
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
     ],
-    "exclude": [
-      "dist"
-    ],
-    "compilerOptions": {
-      "allowJs": true,
-      "allowUnreachableCode": false,
-      "allowUnusedLabels": false,
-      "declaration": false,
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "noEmitOnError": true,
-      "noFallthroughCasesInSwitch": true,
-      "noImplicitAny": true,
-      "noImplicitReturns": true,
-      "noImplicitThis": false,
-      "noImplicitUseStrict": false,
-      "sourceMap": true,
-      "strict": true,
-      "suppressImplicitAnyIndexErrors": true,
-      "target": "es5",
-      "outDir": "./dist/js",
-      "baseUrl": "./src",
-      "types": [],
-      "typeRoots": [
-        "node_modules/@types"
-      ],
-      "lib": [
-        "es2017",
-        "dom"
-      ]
-    }
-  }
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "src"
+  ]
+}
+  

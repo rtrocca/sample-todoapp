@@ -16,6 +16,11 @@ module.exports = {
                 use: ['babel-loader']
             },
             {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            },
+            {
                 test: /\.html$/i,
                 loader: 'html-loader'
             },
@@ -43,7 +48,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx']
     },
     optimization: {
         splitChunks: {
