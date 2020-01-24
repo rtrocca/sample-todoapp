@@ -1,6 +1,9 @@
 window.jQuery = window.$ = require('jquery');
-import 'popper.js'
-import 'bootstrap'
+import 'popper.js';
+import 'bootstrap';
+
+window.React = require('react');
+require('react-dom');
 
 window._ = require('lodash');
 
