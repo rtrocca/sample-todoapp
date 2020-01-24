@@ -1,4 +1,13 @@
 <div class="container-fluid">
+
+    <script 
+        type="text/ng-template"
+        id="theOddTpl">
+        <div class="col-md-12">
+            <pre>Do not take this too seriously. It's only a sample.</pre>
+        </div>
+    </script>
+
     <div class="row">
         <div class="col">
             <app-title app-title="'To Do'"></app-title>
@@ -8,5 +17,13 @@
         <div class="col">
             <ui-view>
         </div>
+    </div>
+    <div class="row">
+        <ng-include src="'theOddTpl'">
+        </ng-include>
+    </div>
+    <div class="row">
+        <ng-include src="'theExternalTpl'">
+        </ng-include>
     </div>
 </div>
