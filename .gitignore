@@ -61,6 +61,12 @@ typings/
 .next
 
 # Ignore the files built by gulp
-dist
+#dist
+dist/*.js
+dist/*.js.map
+dist/*.css
+dist/*.css.map
+
+
 
 package-lock.json
