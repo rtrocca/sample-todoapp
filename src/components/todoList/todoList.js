@@ -1,7 +1,7 @@
 import * as angular from 'angular';
 import template from './todoList.ng.html';
 
-angular.module('todoApp').component( 'todoList',{
+angular.module('todoApp').component('todoList', {
     template,
     bindings: {},
     controller: [
@@ -9,21 +9,20 @@ angular.module('todoApp').component( 'todoList',{
         'storage',
         function (
             $state,
-            storage
+            storage,
         ) {
-            let $ctrl = this;
+            const $ctrl = this;
 
             $ctrl.$onInit = () => {
                 storage.get().then(
                     (myData) => {
                         $ctrl.todos = myData;
-                    }
+                    },
                 );
             };
 
-            $ctrl.onCreateClick= () => {
-                console.log('onCreateClick');
-                $state.go('edit', {todoId: null});
+            $ctrl.onCreateClick = () => {
+                $state.go('edit', { todoId: null });
             };
 
             $ctrl.toggleDone = (todo) => {
@@ -31,7 +30,7 @@ angular.module('todoApp').component( 'todoList',{
                 storage.update(todo).then(
                     (todos) => {
                         $ctrl.todos = todos;
-                    }
+                    },
                 );
             };
 
@@ -48,9 +47,9 @@ angular.module('todoApp').component( 'todoList',{
             $ctrl.onDelete = (todo) => {
                 $ctrl.onModalCancel();
                 storage.remove(todo.id).then(
-                    (todos) => $ctrl.todos = todos 
+                    (todos) => { $ctrl.todos = todos; },
                 );
-            }
-        }
-    ]
+            };
+        },
+    ],
 });

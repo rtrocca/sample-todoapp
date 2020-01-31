@@ -1,13 +1,12 @@
 import * as uuid4 from 'uuid4';
 import * as angular from 'angular';
 
-angular.module('todoApp').service('storage',[
+angular.module('todoApp').service('storage', [
     '$q',
-    function($q) {
-
+    function ($q) {
         function createNew() {
-            let deferred = $q.defer();
-            deferred.resolve({text: 'NEW', done: false});
+            const deferred = $q.defer();
+            deferred.resolve({ text: 'NEW', done: false });
             return deferred.promise;
         }
 
@@ -16,8 +15,7 @@ angular.module('todoApp').service('storage',[
             if (myData) {
                 try {
                     myData = JSON.parse(myData);
-                }
-                catch (e) {
+                } catch (e) {
                     myData = [];
                 }
             } else {
@@ -32,11 +30,11 @@ angular.module('todoApp').service('storage',[
         }
 
         function get(id) {
-            let deferred = $q.defer();
-            let myData = getData();
+            const deferred = $q.defer();
+            const myData = getData();
             if (id !== undefined) {
-                let record = _.find(myData, {id: id});
-                deferred.resolve(record); 
+                const record = _.find(myData, { id });
+                deferred.resolve(record);
             } else {
                 deferred.resolve(myData);
             }
@@ -44,9 +42,9 @@ angular.module('todoApp').service('storage',[
         }
 
         function save(record) {
-            let deferred = $q.defer();
+            const deferred = $q.defer();
             record.id = uuid4();
-            let myData = getData();
+            const myData = getData();
             myData.push(record);
             saveData(myData);
             deferred.resolve(myData);
@@ -54,20 +52,20 @@ angular.module('todoApp').service('storage',[
         }
 
         function remove(id) {
-            let deferred = $q.defer();
-            let myData = getData().filter( (record) => record.id !== id);
+            const deferred = $q.defer();
+            const myData = getData().filter((record) => record.id !== id);
             saveData(myData);
             deferred.resolve(myData);
             return deferred.promise;
         }
 
         function update(record) {
-            let deferred = $q.defer();
-            let myData = getData();
-            let idx = _.findIndex(myData, {id: record.id});
+            const deferred = $q.defer();
+            const myData = getData();
+            const idx = _.findIndex(myData, { id: record.id });
             if (idx >= 0) {
-                myData.splice(idx, 1, record);  
-                saveData(myData);  
+                myData.splice(idx, 1, record);
+                saveData(myData);
                 deferred.resolve(myData);
             } else {
                 deferred.reject('Not found');
@@ -76,11 +74,11 @@ angular.module('todoApp').service('storage',[
         }
 
         return {
-            createNew: createNew,
-            get: get,
-            save: save,
-            update: update,
-            remove: remove
-        }
-    }
+            createNew,
+            get,
+            save,
+            update,
+            remove,
+        };
+    },
 ]);

@@ -1,53 +1,50 @@
 import * as angular from 'angular';
 
+const template = require('./todoEdit.ng.html');
+
 angular.module('todoApp').component(
     'todoEdit', {
-        template: require('./todoEdit.ng.html'),
+        template,
         bindings: {
-            todo: '<'
+            todo: '<',
         },
-        controller: [ 
+        controller: [
             '$state',
             'storage',
-            
-            function(
+
+            function (
                 $state,
-                storage
-            ){
-            let $ctrl = this;
+                storage,
+            ) {
+                const $ctrl = this;
 
-            $ctrl.$onInit = () => {
-            };
+                $ctrl.onKeyDown = (event) => {
+                    if (event.keyCode === 13) {
+                        $ctrl.onSave();
+                    }
+                };
 
-            $ctrl.$onChanges = (changes) => {
-            }
+                $ctrl.onSave = () => {
+                    let promise;
+                    if (!$ctrl.todo.id) {
+                        promise = storage.save($ctrl.todo);
+                    } else {
+                        promise = storage.update($ctrl.todo);
+                    }
+                    promise.then(() => {
+                        $state.go('list');
+                    });
+                };
 
-            $ctrl.onKeyDown = ($event) => {
-                if (event.keyCode === 13) {
-                    $ctrl.onSave();
-                }
-            }
-            $ctrl.onSave = () => {
-                let promise;
-                if (!$ctrl.todo.id) {
-                    promise = storage.save($ctrl.todo);
-                } else {
-                    promise = storage.update($ctrl.todo);
-                }
-                promise.then( () => {
+                $ctrl.onCancel = () => {
                     $state.go('list');
-                });
-            };
+                };
 
-            $ctrl.onCancel = () => {
-                $state.go('list');
-            };
+                $ctrl.onDelete = () => {
+                    storage.remove($ctrl.todo.id).then(() => { $state.go('list'); });
+                };
 
-            $ctrl.onDelete = () => {
-                storage.remove($ctrl.todo.id).then(()=> {$state.go('list');});
-            }
-
-            $ctrl.isNew = () => $ctrl.todo && !$ctrl.todo.id;
-        }]
-    }
+                $ctrl.isNew = () => $ctrl.todo && !$ctrl.todo.id;
+        }],
+    },
 );
